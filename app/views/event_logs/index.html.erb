@@ -1,0 +1,40 @@
+<h2>Your Sing-In/Sign-Out history trail for : <%= format_time(@event_logs.first.in_time, 'date')%> </h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">In-Time</th>
+      <th scope="col">Out-Time</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+  <% if @event_logs.present? %>
+    <% @event_logs.each do |log| %>
+    <tr>
+      <th scope="row"><%= format_time(log.in_time, 'date')%></th>
+      <th scope="row"><%= format_time(log.in_time, 'time') %></th>
+      <th scope="row"><%= format_time(log.out_time, 'time')%></th>
+      
+      <td>
+      </td>
+    </tr> 
+    <%end%>
+  <%else%>
+   <tr>
+    <td>
+    No time entry yet
+  </td>
+  </tr>
+  
+  <%end%>
+  
+  
+  </tbody>
+</table>
+<%= paginate @event_logs %>
+</br></br>
+
+<%= link_to 'Back to dashboard', time_trackers_path %>
+</br></br>

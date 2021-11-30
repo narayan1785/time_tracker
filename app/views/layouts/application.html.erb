@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeTalker</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <%= render 'shared/navbar' %>
+        <div class="col-lg-10">
+          <div class="container-md-center ">
+            <p><%#= notice %> </p>
+            <p><%#= alert %></p>
+          <%= yield %>
+        </div>
+        </div>
+      </div>
+
+      <footer class="text-center text-lg-start bg-light text-muted">    
+        <p>&copy;2021</p>
+      </footer>
+
+    </div>
+  </body>

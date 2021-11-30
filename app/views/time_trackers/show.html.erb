@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Day in:</strong>
+  <%= @time_tracker.day_in %>
+</p>
+
+<p>
+  <strong>Day out:</strong>
+  <%= @time_tracker.day_out %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @time_tracker.comment %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @time_tracker.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_time_tracker_path(@time_tracker) %> |
+<%= link_to 'Back', time_trackers_path %>

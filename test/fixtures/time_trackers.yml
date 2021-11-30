@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day_in: 2021-11-29 17:20:21
+  day_out: 2021-11-29 17:20:21
+  comment: MyString
+  user: one
+
+two:
+  day_in: 2021-11-29 17:20:21
+  day_out: 2021-11-29 17:20:21
+  comment: MyString
+  user: two

@@ -1,0 +1,44 @@
+<p id="notice"><%#= notice %></p>
+
+<h2>Your entry log history</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">In-Time</th>
+      <th scope="col">Out-Time <a href="#" data-toggle="tooltip" data-placement="top" title="Out time will be batch updated at the end of the day!">(i)</a></th>
+      <th scope="col">Comment</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% if @time_trackers.present? %>
+    <% @time_trackers.each do |tracker| %>
+    <tr>
+      <th scope="row"><%= format_time(tracker.day_in, 'date')%></th>
+      <th scope="row"><%= format_time(tracker.day_in, 'time') %></th>
+      <td scope="row"><%= format_time(tracker.day_out, 'time')%></td>
+      <td><%= tracker.comment%></td>
+      <td><%= link_to 'Edit Entry', edit_time_tracker_path(tracker) %> | 
+          <%= link_to 'Detailed Log',time_tracker_event_logs_path(tracker) %>
+      </td>
+    </tr> 
+    <%end%>
+  <%else%>
+   <tr>
+    <td>
+    No time entry yet
+  </td>
+  </tr>
+  
+  <%end%>
+  
+  
+  </tbody>
+</table>
+<%= paginate @time_trackers %>
+</br></br>
+
+<%= link_to 'Back to Home', root_path %>
+</br></br>

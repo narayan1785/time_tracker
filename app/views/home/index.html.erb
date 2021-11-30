@@ -1,0 +1,32 @@
+<div class='container'>
+  <div class="row">
+  	
+		<div class="card col-md-4" style="width: 18rem;">
+		  <%= image_tag("clock-in.jpg", class: "card-img-top") %>
+		  <div class="card-body">
+		    <% if TimeTracker.clocked_in_evnt(current_user).present? %>
+		       <p class="h5">Logged in since : <%= TimeTracker.clocked_in_evnt(current_user).first.in_time.to_formatted_s(:short) %><p>
+		       <%= render 'clock_out' %>
+		    <%elsif TimeTracker.clocked_out_evnt(current_user).present? %>
+			     <% if current_user.is_clocked_in.any? %>
+			       <p class="h5">So far clocked in hours : <%= duration_hr(current_user.is_clocked_in.first.total_session_min)  %>    
+			     <%end%>
+			     <%= render 'clock_in' %>
+			  <%else%>
+			     <%= render 'clock_in' %>
+		    <%end%>
+		  </div>
+		</div>
+
+
+		<div class="card col-md-4 offset-md-2" style="width: 18rem;">
+		  <%= image_tag("dashboard.png", class: "card-img-top") %>
+		  <div class="card-body">
+		    <p class="h5">Dashboard</p>
+		    <%= link_to 'View Dashboard',time_trackers_path %>
+		  </div>
+		</div>
+
+  </div>
+</div>
+<br/> <br/><br/>

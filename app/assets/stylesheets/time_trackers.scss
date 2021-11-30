@@ -1,0 +1,15 @@
+// Place all the styles related to the TimeTrackers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.form-group {
+	&.required {
+		.control-label {
+			&:after {
+				content: "*";
+				color: red;
+			}
+		}
+	}
+}

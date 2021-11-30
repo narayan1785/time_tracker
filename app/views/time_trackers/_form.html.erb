@@ -1,0 +1,36 @@
+<%= form_with(model: time_tracker) do |form| %>
+  <% if time_tracker.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(time_tracker.errors.count, "error") %> prohibited this time_tracker from being saved:</h2>
+
+      <ul>
+        <% time_tracker.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :day_in %>
+    <%= form.datetime_select :day_in %>
+  </div>
+
+  <div class="field">
+    <%= form.label :day_out %>
+    <%= form.datetime_select :day_out %>
+  </div>
+
+  <div class="form-group required">
+    <%= form.label :comment ,class: 'control-label'%>
+    <%= form.text_area :comment %>
+  </div>
+
+  <div>
+    <%= form.hidden_field :edit_time_log, value: true%>
+  </div>
+  <br/>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
